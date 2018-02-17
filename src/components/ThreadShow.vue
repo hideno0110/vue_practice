@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>hello vue.js</h1>
-    <div v-for="thread in threads" class="col-large push-top">
+    <div class="col-large push-top">
       <h1>{{thread.title}}</h1>
       <div class="post-list">
         <div v-for="postId in thread.posts" class="post">
@@ -18,21 +18,16 @@
 
     </div>
   </div>
+
 </template>
 
 <script>
-import sourceData from '@/data'
-console.log(sourceData)
-
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      threads: sourceData.threads,
-      posts: sourceData.posts,
-      users: sourceData.users
+  export default {
+    props: {
+      id: {
+        required: true,
+        type: String
+      }
     }
   }
-}
 </script>
-
